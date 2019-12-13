@@ -97,16 +97,18 @@ Our model can reach a 68% accuracy on coloring images with category of seashore.
 `Example1`
 
 Real
-![Real](demo/1.png)
+
+![Real](./demo/1.png)
 
 Prediction
 
-![Prediction](demo/2.png)
+![Prediction](./demo/2.png)
 
 `Example2`
 
 Real
-![Real](demo/3.png)
+
+![Real](./demo/3.png)
 
 Prediction
 
@@ -115,20 +117,21 @@ Prediction
 `Example3`
 
 Real
+
 ![Real](demo/5.png)
 
 Prediction
 
-![Prediction](demo/6.png)
+![Prediction](./demo/6.png)
 
 `Example4`
 
 Real
-![Real](demo/7.png)
+![Real](./demo/7.png)
 
 Prediction
 
-![Prediction](demo/8.png)
+![Prediction](./demo/8.png)
 
 Base on our observation, predicted images make sense in some degree, but still have some evident flaws:
 
@@ -139,11 +142,13 @@ Second, the margin between sea, sky and beach is vague and the model tend to use
 Finally, the model may confuse the sea with beach if the coastline is irregular.
 
 Besides, the model cannot handle the images that are not seashore at all as was expected. The model will try to use blue and yellow which are colors of sea and sands to colorize the image.
+
 ![](demo/9.png)
+
 ![](demo/10.png)
 ### Rethinking & Improvement
 
-First, the size of dataset maybe not enough for the problem as our model seems not to extract all the features from the image correctly, which leads some mistakes when finding the margin.
+First, the size of dataset maybe not enough for the problem as our model seems not to extract all the features from the image correctly, which leads some mistakes when finding the margin between land and sea.
 
 Then, the loss function we choose encourages the model to make a conservative selection on colors. These losses are inherited from standard regression
 problems, where the goal is to minimize Mean squared error between an estimate
@@ -204,10 +209,6 @@ For forest error: 0.0009118240178506841
 
 For scenery error:0.0019461416507325722
 
-We will explain detail blew:
-
-
-
 ![Prediction](demo/sky.png)
 
 
@@ -230,7 +231,8 @@ From the above experiment we can conclude even if our training data and test dat
 
 Our program is good at the same color space coloring and the picture with small complexity
 
-I think the result due to our simple neural network. If we improve our one-hot code depth we may can improve the result and avoid the distortion, (improve one-hot code can not only increase the color space but also improve fault tolerance for different color space picture). Also we can improve our data set to get a more complicated structure. 
+I think the result still can be improved. If we increase the sorts of colors used in classification, we maybe able to improve the result and avoid the distortion, (A longer one-hot code can not only increase the color space but also improve fault tolerance for different color space picture). 
+Also, we can enlarge our dataset to get a better result.
 
 
 
